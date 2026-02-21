@@ -99,21 +99,15 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
                 if item != "":
                     new_nodes.append(TextNode(item, TextType.TEXT))
                     new_nodes.append(TextNode(styled.strip(delimiter), text_type))
-                    print("not_blank", new_nodes)
                 if item == "":
                     new_nodes.append(TextNode(styled.strip(delimiter), text_type))
                     new_nodes.append(TextNode(item, TextType.TEXT))
-                    print("blank", new_nodes)
                 if len(nonstyled) > 1:
                     new_nodes.append(TextNode(nonstyled[-1], TextType.TEXT))
-                    print("over", new_nodes)
                 if len(styled_items) > 1 and loop_count != len(styled_items):
                     node_to_process = new_nodes[-1]
                     new_nodes.pop()
-                print("processing", node_to_process)
-                print("new_nodes", new_nodes)
                 ordered.extend(new_nodes)
-                print("ordered", ordered)
             all_new_nodes.extend(ordered)
     return all_new_nodes
         

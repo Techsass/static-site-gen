@@ -1,9 +1,15 @@
+import sys
 from textnode import *
 from filehelpers import *
 
 def main():
-    proj_path = "/mnt/c/Users/gnart/code/github/techsass/boot/static-gen/static-site-gen"
-    files = copy_contents(f"{proj_path}/static", f"{proj_path}/public")
-    generate_pages_recursive(f"{proj_path}/content", f"{proj_path}/template.html", f"{proj_path}/public")
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+    else:
+        basepath = "/"
+    # proj_path = "/mnt/c/Users/gnart/code/github/techsass/boot/static-gen/static-site-gen"
+
+    copy_contents(f"{basepath}static", f"{basepath}docs")
+    generate_pages_recursive(f"{basepath}content", f"{basepath}template.html", f"{basepath}docs", f"{basepath}")
 
 main()
