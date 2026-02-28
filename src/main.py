@@ -8,8 +8,8 @@ def main():
     else:
         basepath = "/"
     # proj_path = "/mnt/c/Users/gnart/code/github/techsass/boot/static-gen/static-site-gen"
-
-    copy_contents(f"{basepath}static", f"{basepath}docs")
-    generate_pages_recursive(f"{basepath}content", f"{basepath}template.html", f"{basepath}docs", f"{basepath}")
+    print(basepath)
+    copy_contents(f"./static", f"./docs")
+    generate_pages_recursive(f"./content", f"./template.html", f"./docs", f"{basepath}/docs")
 
 main()

@@ -3,11 +3,11 @@ import shutil
 from blocks import *
 
 def copy_contents(source, destination):
+    print(f"DEBUG: source = '{source}'")
     if not os.path.exists(source):
         raise Exception("Source is empty or doesn't exist, unable to copy files to destination folder")
     if not os.path.exists(destination):
         os.makedirs(destination, 0o755)
-    
     if os.listdir(destination) != []:
         shutil.rmtree(destination)
     file_log = []
